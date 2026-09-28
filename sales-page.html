@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Looksmaxxing — Sua melhor forma em 30 dias</title>
+<style>
+  :root{
+    --black:#0b0b0d; --ink:#17140f; --navy:#0e1a33; --navy-light:#1c2c4d;
+    --brown:#6b4a2f; --brown-light:#a9805a; --brown-dark:#3e2a1a;
+    --cream:#f4efe6; --paper:#faf7f1; --gold:#c9a06a;
+    padding-top: env(safe-area-inset-top,0px);
+    padding-bottom: env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Helvetica Neue',Arial,sans-serif; line-height:1.55;
+  }
+  h1,h2,h3,.serif{font-family:Georgia,'Times New Roman',serif;}
+  img,svg{max-width:100%;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 24px;}
+  section{padding:64px 0;}
+  a.btn{
+    display:inline-block; background:var(--brown-light); color:#fff;
+    padding:16px 36px; border-radius:3px; text-decoration:none;
+    font-weight:700; font-size:16px; letter-spacing:0.3px;
+    transition:transform .15s ease, background .15s ease;
+  }
+  a.btn:hover{ background:var(--gold); transform:translateY(-1px); }
+  a.btn:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(165deg, var(--navy) 0%, var(--black) 60%, var(--brown-dark) 100%);
+    color:var(--cream); text-align:center; padding:80px 0 64px;
+  }
+  .hero .eyebrow{ color:var(--brown-light); letter-spacing:2px; font-size:13px; margin-bottom:18px;}
+  .hero h1{ font-size:clamp(32px,6vw,50px); line-height:1.15; margin:0 0 18px; color:#fff;}
+  .hero p.lead{ font-size:18px; max-width:480px; margin:0 auto 34px; color:#d9d2c4;}
+  .hero .price-tag{ font-size:14px; color:var(--brown-light); margin-top:18px;}
+
+  /* PAIN */
+  .pain{ background:var(--paper); }
+  .pain h2{ font-size:26px; color:var(--navy); margin-bottom:28px; text-align:center;}
+  .pain ul{ list-style:none; padding:0; margin:0; }
+  .pain li{
+    padding:16px 0 16px 34px; border-bottom:1px solid #e4dbc9; position:relative; font-size:16px;
+  }
+  .pain li:last-child{ border-bottom:none; }
+  .pain li::before{
+    content:"—"; position:absolute; left:0; color:var(--brown-light); font-weight:bold;
+  }
+
+  /* PROMISE */
+  .promise{ background:var(--navy); color:var(--cream); text-align:center; }
+  .promise .quote{ font-family:Georgia,serif; font-style:italic; font-size:22px; line-height:1.5; max-width:520px; margin:0 auto;}
+  .promise .quote span{ color:var(--brown-light); }
+
+  /* CONTENTS */
+  .contents h2{ font-size:26px; color:var(--navy); text-align:center; margin-bottom:8px;}
+  .contents .sub{ text-align:center; color:#6b6353; margin-bottom:36px; font-size:15px;}
+  .chapter-list{ display:flex; flex-direction:column; gap:0; }
+  .chapter-list .row{
+    display:flex; gap:16px; align-items:baseline; padding:13px 0; border-bottom:1px dotted #d9cfbd;
+  }
+  .chapter-list .num{ font-family:Georgia,serif; color:var(--brown-light); font-weight:bold; min-width:26px;}
+  .chapter-list .name{ font-weight:600; color:var(--navy); }
+  .chapter-list .desc{ color:#6b6353; font-size:14px; }
+
+  /* STACK / VALUE */
+  .stack{ background:var(--cream); }
+  .stack h2{ font-size:26px; color:var(--navy); text-align:center; margin-bottom:30px;}
+  .stack-card{
+    background:var(--paper); border:1px solid #e4dbc9; border-left:4px solid var(--brown-light);
+    padding:22px 24px; margin-bottom:14px; border-radius:2px;
+  }
+  .stack-card h3{ margin:0 0 6px; font-size:17px; color:var(--ink);}
+  .stack-card p{ margin:0; color:#5a5346; font-size:14.5px; }
+
+  /* GUARANTEE */
+  .guarantee{ text-align:center; }
+  .guarantee .badge{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:76px;height:76px;border-radius:50%; border:2px solid var(--brown-light);
+    margin-bottom:20px; color:var(--brown-light); font-size:28px; font-family:Georgia,serif;
+  }
+  .guarantee h2{ font-size:24px; color:var(--navy); margin-bottom:14px;}
+  .guarantee p{ max-width:480px; margin:0 auto; color:#5a5346;}
+
+  /* FINAL CTA */
+  .final-cta{
+    background:linear-gradient(200deg, var(--brown-dark) 0%, var(--black) 55%, var(--navy) 100%);
+    color:#fff; text-align:center;
+  }
+  .final-cta h2{ font-size:clamp(26px,5vw,34px); margin-bottom:14px; }
+  .final-cta p{ color:#d9d2c4; margin-bottom:30px; }
+
+  /* FAQ */
+  .faq h2{ font-size:24px; color:var(--navy); text-align:center; margin-bottom:30px;}
+  details{ border-bottom:1px solid #e4dbc9; padding:16px 0; }
+  summary{ cursor:pointer; font-weight:600; color:var(--ink); font-size:15.5px; list-style:none; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::before{ content:"+"; color:var(--brown-light); font-weight:bold; margin-right:10px; }
+  details[open] summary::before{ content:"–"; }
+  details p{ margin:10px 0 0 20px; color:#5a5346; font-size:14.5px; }
+
+  footer{ text-align:center; padding:36px 0; font-size:12px; color:#8a8271; }
+
+  @media (max-width:480px){
+    section{ padding:48px 0; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">O QUE A IA NÃO TE CONTA</div>
+    <h1>Sua melhor forma em 30 dias começa agora.</h1>
+    <p class="lead">Um guia direto para melhorar sua higiene, pele, cabelo, corpo, postura, estilo e presença — sem mudar quem você é.</p>
+    <a class="btn" href="https://pay.kiwify.com.br/vskrtgf">Quero o e-book agora</a>
+    <div class="price-tag">Acesso imediato após a compra</div>
+  </div>
+</section>
+
+<section class="pain">
+  <div class="wrap">
+    <h2>Você sabe que podia estar melhor.</h2>
+    <ul>
+      <li>Sente que não está aproveitando o que já tem — cabelo, rosto, corpo, estilo.</li>
+      <li>Já tentou virar a chave sozinho, mas não sabia por onde começar.</li>
+      <li>Cansou de conteúdo genérico que não fala a real sobre o que funciona.</li>
+      <li>Quer evoluir de forma prática, sem gastar uma fortuna nem virar outra pessoa.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="promise">
+  <div class="wrap">
+    <p class="quote">"Você não precisa mudar quem você é. Precisa aprender a <span>potencializar</span> aquilo que já tem."</p>
+  </div>
+</section>
+
+<section class="contents">
+  <div class="wrap">
+    <h2>O que você vai aprender</h2>
+    <p class="sub">10 capítulos práticos, direto ao ponto</p>
+    <div class="chapter-list">
+      <div class="row"><span class="num">01</span><span class="name">Hygiene Maxxing</span><span class="desc">— a base de tudo</span></div>
+      <div class="row"><span class="num">02</span><span class="name">Skin Maxxing</span><span class="desc">— rotina simples de pele</span></div>
+      <div class="row"><span class="num">03</span><span class="name">Hair Maxxing</span><span class="desc">— o corte certo pra você</span></div>
+      <div class="row"><span class="num">04</span><span class="name">Eyebrow Maxxing</span><span class="desc">— organizar sem exagerar</span></div>
+      <div class="row"><span class="num">05</span><span class="name">Smile Maxxing</span><span class="desc">— saúde antes de estética</span></div>
+      <div class="row"><span class="num">06</span><span class="name">Body Maxxing</span><span class="desc">— físico proporcional</span></div>
+      <div class="row"><span class="num">07</span><span class="name">Posture Maxxing</span><span class="desc">— presença e confiança</span></div>
+      <div class="row"><span class="num">08</span><span class="name">Height Maxxing</span><span class="desc">— percepção visual de altura</span></div>
+      <div class="row"><span class="num">09</span><span class="name">Style Maxxing</span><span class="desc">— 3 estéticas prontas pra usar</span></div>
+      <div class="row"><span class="num">10</span><span class="name">Scent Maxxing</span><span class="desc">— uma coleção de perfumes com função</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="stack">
+  <div class="wrap">
+    <h2>Por que esse e-book é diferente</h2>
+    <div class="stack-card">
+      <h3>Direto ao ponto</h3>
+      <p>Sem enrolação. Cada capítulo entrega o que fazer, sem textos genéricos de internet.</p>
+    </div>
+    <div class="stack-card">
+      <h3>Recomendações reais</h3>
+      <p>Marcas e produtos usados de verdade em cada área — higiene, pele, cabelo e perfumaria.</p>
+    </div>
+    <div class="stack-card">
+      <h3>Evolução, não perfeição</h3>
+      <p>Um plano pra valorizar o que você já tem, não pra virar outra pessoa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="guarantee">
+  <div class="wrap">
+    <div class="badge">30</div>
+    <h2>Comece a evoluir hoje</h2>
+    <p>O material é seu pra sempre: leia no seu ritmo e aplique um capítulo por vez ao longo dos próximos 30 dias.</p>
+  </div>
+</section>
+
+<section class="final-cta" id="comprar">
+  <div class="wrap">
+    <h2>Sua melhor forma começa quando você decide parar de ignorar o seu potencial.</h2>
+    <p>Looksmaxxing — o guia completo em PDF, acesso imediato.</p>
+    <a class="btn" href="https://pay.kiwify.com.br/vskrtgf">Quero o e-book agora</a>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <h2>Perguntas frequentes</h2>
+    <details>
+      <summary>Como recebo o e-book?</summary>
+      <p>Assim que a compra é confirmada, você recebe o link de download em PDF por e-mail.</p>
+    </details>
+    <details>
+      <summary>Funciona pra qualquer idade?</summary>
+      <p>Sim. Os princípios de higiene, cuidado e estilo se aplicam independentemente da idade ou do ponto em que você está.</p>
+    </details>
+    <details>
+      <summary>Preciso comprar produtos caros?</summary>
+      <p>Não. O e-book indica opções acessíveis em cada categoria — você escolhe o que faz sentido pro seu orçamento.</p>
+    </details>
+    <details>
+      <summary>É só teoria ou tem prática?</summary>
+      <p>É prático: cada capítulo termina com direcionamentos claros do que aplicar no dia a dia.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  LOOKSMAXXING — O que a IA não te conta
+</footer>
+
+</body>
+</html>
